@@ -34,7 +34,8 @@ public class Script : ScriptBase
     {
         var lines = csvText.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
         // var properties = lines[0].Split(',');
-        var properties = lines[0].Split(separator);
+        char localSep = separator.ToCharArray()[0];
+        var properties = lines[0].Split(localSep);
         for (int j = 0; j < properties.Length; j++) {
             properties[j] = properties[j].Trim();
         }
