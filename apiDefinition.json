@@ -1,0 +1,66 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "CSV To JSON Converter",
+    "description": "",
+    "version": "1.0"
+  },
+  "host": "api.contoso.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "description": "Converted object",
+              "title": "Output",
+              "x-ms-visibility": "important"
+            }
+          }
+        },
+        "summary": "Csv To Json",
+        "description": "CSV to JSON Converter",
+        "operationId": "CsvToJson",
+        "parameters": [
+          {
+            "name": "x-trim-whitespace",
+            "x-ms-summary": "Trim whitespace",
+            "in": "header",
+            "required": false,
+            "type": "boolean",
+            "default": true,
+            "description": "Trim whitespace"
+          },
+          {
+            "name": "x-skip-blank-entries",
+            "in": "header",
+            "required": false,
+            "type": "boolean",
+            "x-ms-summary": "Skip blank entries",
+            "default": true,
+            "description": "Skip blank entries"
+          },
+          {
+            "name": "CSV",
+            "in": "body",
+            "required": true,
+            "schema": {}
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}
