@@ -1,6 +1,6 @@
 # CSV to JSON custom connector for Power Platform
 
-This is simple code-based connector where the method is entirely contained within the custom code block. 
+This is simple code-based connector where the method is entirely contained within the custom code block.
 
 Purpose of the connector is to take CSV input and return JSON output equivalent. The implementation is extremely simple and is partially based on [this Stack Overflow answer](https://stackoverflow.com/a/14198311/70347). Well-formatted CSV with the first line containing the headers is expected. Double-quoted entries are permitted and can span multiple lines.
 
@@ -15,13 +15,13 @@ There are two ways to install the connector:
 
 ### Manual
 
-1. Download [script.csx](https://github.com/georged/code-connectors/blob/main/csv-to-json/script.csx) (click on **... > Download** in the top right-hand corner).
+1. Download [script.csx](https://github.com/hobbyman/csv-connector/blob/master/script.csx) (click on **... > Download** in the top right-hand corner).
 2. Sign in to [https://make.powerapps.com](https://make.powerapps.com).
 3. Select target environment.
 4. Select **Custom connectors** in the left navigation.
 5. Select **+ New customer connector > Import an OpenAPI from URL**.
    * Enter **CSV Magic** as Connector name.
-   * Copy and paste this URL: `https://raw.githubusercontent.com/georged/code-connectors/main/csv-to-json/apiDefinition.json` 
+   * Copy and paste this URL: `https://raw.githubusercontent.com/hobbyman/csv-connector/master/apiDefinition.json`
 6. Select **Import** then select **Continue**.
 7. Select **Code** in the navigation dropdown.
 8. Flip the switch to **Code Enabled**.
