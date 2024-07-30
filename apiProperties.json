@@ -4,7 +4,7 @@
     "iconBrandColor": "#ffffff",
     "capabilities": [],
     "scriptOperations": ["CsvToJson"],
-    "publisher": "George Doubinski",
-    "stackOwner": "George Doubinski"
+    "publisher": "Lance Perry",
+    "stackOwner": "Lance Perry"
   }
 }

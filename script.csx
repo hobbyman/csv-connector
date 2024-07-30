@@ -15,12 +15,16 @@ public class Script : ScriptBase
         bool trimEntries = true;
         bool skipBlankEntries = true;
 
-        JObject json = JObject.Parse(contentAsString);
+        // JObject json = JObject.Parse(contentAsString);
 
         // string regex = json.GetValue("Regex")?.Value<string>() ?? "";
         // string replace = json.GetValue("Replace")?.Value<string>() ?? "";
 
-        string separator = json.GetValue("x-separator")?.Value<string>() ?? ",";
+        // string separator = json.GetValue("x-separator")?.Value<string>() ?? ",";
+        string separator = (string)this.Context.Request.Headers.GetValues("x-separator").FirstOrDefault();
+        if (string.IsNullOrEmpty(separator)) {
+            separator = ",";
+        }
 
         bool.TryParse(GetHeaderString(this.Context.Request.Headers, "x-trim-whitespace"), out trimEntries);
         bool.TryParse(GetHeaderString(this.Context.Request.Headers, "x-skip-blank-entries"), out skipBlankEntries);
