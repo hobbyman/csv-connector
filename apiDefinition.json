@@ -48,6 +48,15 @@
             "description": "Skip blank entries"
           },
           {
+            "name": "x-separator",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "x-ms-summary": "CSV Separator",
+            "default": ",",
+            "description": "CSV Separator"
+          },
+          {
             "name": "CSV",
             "in": "body",
             "required": true,
