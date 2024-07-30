@@ -70,6 +70,7 @@ public class Script : ScriptBase
 
     private void ScanNextLine(string line, string separator)
     {
+        char localSep = separator.ToCharArray()[0];
         // At the beginning of the line
         if (!insideQuotation)
         {
@@ -91,7 +92,7 @@ public class Script : ScriptBase
                 }
             }
             // else if (c == ',')
-            else if (c == char.Parse(separator))
+            else if (c == localSep)
             {
                 entries[entries.Count - 1].Add(currentEntry);
                 currentEntry = "";
