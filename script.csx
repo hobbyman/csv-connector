@@ -91,7 +91,7 @@ public class Script : ScriptBase
                 }
             }
             // else if (c == ',')
-            else if (c == separator.ToCharArray()[0])
+            else if (c == char.Parse(separator))
             {
                 entries[entries.Count - 1].Add(currentEntry);
                 currentEntry = "";
