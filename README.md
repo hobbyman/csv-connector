@@ -30,6 +30,7 @@ There are two ways to install the connector:
 10. Select **CsvToJson** in the list of operations.
 11. Select **Create connector**.
 
+<!--
 ### Power Platform CLI (recommended)
 
 What do you need?
@@ -51,3 +52,5 @@ What do you need?
    ```shell
    pac connector create --settings-file settings.json
    ```
+
+-->   
