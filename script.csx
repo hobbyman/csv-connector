@@ -31,7 +31,8 @@ public class Script : ScriptBase
         var lines = csvText.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
         // var properties = lines[0].Split(',');
         char localSep = separator.ToCharArray()[0];
-        var properties = lines[0].Split(localSep);
+        // var properties = lines[0].Split(localSep); //-- NOTE:
+        var properties = SmartSplit(lines[0],',', '"', false); //-- NOTE:
         for (int j = 0; j < properties.Length; j++) {
             properties[j] = properties[j].Trim();
         }
@@ -126,4 +127,36 @@ public class Script : ScriptBase
 
             return null;
     }
+
+    //-- NOTE: find this at:
+    //-- https://www.reddit.com/r/learnprogramming/comments/c2zk91/c_how_to_read_a_csv_file_that_has_commas_within/
+    private static string[] SmartSplit(string s, char splitter, char quote, bool includeQuotes)
+    {
+        if (splitter == quote) throw new ArgumentException();
+        List<string> tokens = new List<string>();
+        StringBuilder sb = new StringBuilder();
+        bool localInsideQuotes = false;
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (!localInsideQuotes && s[i] == splitter)
+            {
+                tokens.Add(sb.ToString());
+                sb.Clear();
+                continue;
+            }
+            if (s[i] == quote)
+            {
+                localInsideQuotes = !localInsideQuotes;
+                if (includeQuotes)
+                    sb.Append(quote);
+                continue;
+            }
+            sb.Append(s[i]);
+        }
+        if (sb.Length > 0)
+            tokens.Add(sb.ToString());
+        return tokens.ToArray();
+    }
+
+
 }
